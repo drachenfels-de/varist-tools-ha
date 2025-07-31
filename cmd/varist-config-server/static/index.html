@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Hybrid Analyzer Editor</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 20px;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: 30px;
+		}
+
+		th,
+		td {
+			border: 1px solid #ccc;
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #eee;
+		}
+
+		input,
+		select {
+			width: 100px;
+		}
+
+		.section {
+			margin-bottom: 40px;
+		}
+
+		#toolbar {
+			position: sticky;
+			top: 0;
+			background: white;
+			padding: 10px 0;
+			z-index: 999;
+			border-bottom: 1px solid #ccc;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		#saveBtn,
+		#undoBtn {
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		.popup {
+			display: none;
+			position: fixed;
+			top: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 12px 24px;
+			border-radius: 5px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+			z-index: 1000;
+			font-weight: bold;
+		}
+
+		#popupSuccess {
+			background: #4CAF50;
+			color: white;
+		}
+
+		#popupError {
+			background: #f44336;
+			color: white;
+		}
+
+		.live-preview {
+			font-style: italic;
+			color: gray;
+			font-size: 13px;
+			padding-left: 5px;
+		}
+
+		.modified {
+			background-color: #fff8c6;
+		}
+
+	</style>
+</head>
+
+<body>
+	<h1>Hybrid Analyzer Editor</h1>
+
+	<div id="toolbar">
+		<button id="saveBtn" onclick="save()">💾 Save</button>
+		<button id="undoBtn" onclick="undo()">↩️ Undo</button>
+		<span class="live-preview" id="preview">Preview: –</span>
+	</div>
+
+	<div id="popupSuccess" class="popup">✔️ Änderungen gespeichert</div>
+	<div id="popupError" class="popup">❌ Fehler beim Speichern</div>
+
+	<div class="section">
+		<h2>Indicator Categories</h2>
+		<table id="categoriesTable">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Action</th>
+					<th>MaxCount</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+
+	<div class="section">
+		<h2>Indicator Items</h2>
+		<table id="itemsTable">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Action</th>
+					<th>MaxCount</th>
+					<th>Regex</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+
+	<script>
+		const ACTIONS_CAT = ["block", "quarantine", "tag"];
+		const ACTIONS_ITEM = ["block", "quarantine", "tag", "ignore"];
+		let data;
+		let lastSaved = null;
+		let unsavedChanges = false;
+
+		window.addEventListener("beforeunload", function (e) {
+			if (unsavedChanges) {
+				e.preventDefault();
+				e.returnValue = '';
+			}
+		});
+
+		fetch("/api/data")
+			.then(res => res.json())
+			.then(json => {
+				data = structuredClone(json);
+				lastSaved = structuredClone(json);
+				fillTables();
+			});
+
+		function createDropdown(value, options, onChange) {
+			return `<select onchange="${onChange}(this)">
+        ${options.map(opt => `<option value="${opt}" ${opt === value ? "selected" : ""}>${opt}</option>`).join("")}
+      </select>`;
+		}
+
+		function fillTables() {
+			const catBody = document.querySelector("#categoriesTable tbody");
+			catBody.innerHTML = "";
+			data["Indicator Categories"].forEach(entry => {
+				for (let key in entry) {
+					const ind = entry[key];
+					catBody.innerHTML += `<tr data-type="cat" data-key="${key}">
+            <td>${key}</td>
+            <td>${ind.Description}</td>
+            <td>${createDropdown(ind.Action, ACTIONS_CAT, 'onChangeField')}</td>
+            <td><input type="number" value="${ind.MaxCount}" onchange="onChangeField(this)" /></td>
+          </tr>`;
+				}
+			});
+
+			const itemBody = document.querySelector("#itemsTable tbody");
+			itemBody.innerHTML = "";
+			data["IndicatorItems"].forEach(entry => {
+				for (let key in entry) {
+					const ind = entry[key];
+					itemBody.innerHTML += `<tr data-type="item" data-key="${key}">
+            <td>${key}</td>
+            <td>${ind.Description}</td>
+            <td>${createDropdown(ind.Action, ACTIONS_ITEM, 'onChangeField')}</td>
+            <td><input type="number" value="${ind.MaxCount}" onchange="onChangeField(this)" /></td>
+            <td><input value="${ind.Regex || ""}" onchange="onChangeField(this)" /></td>
+          </tr>`;
+				}
+			});
+		}
+
+		function onChangeField(el) {
+			const row = el.closest("tr");
+			row.classList.add("modified");
+			unsavedChanges = true;
+
+			if (el.tagName === "SELECT") {
+				document.getElementById("preview").textContent = "Preview: " + el.value;
+			}
+		}
+
+		function save() {
+			const catRows = document.querySelectorAll("#categoriesTable tbody tr");
+			let rowIndex = 0;
+			data["Indicator Categories"].forEach(entry => {
+				for (let key in entry) {
+					const cells = catRows[rowIndex].querySelectorAll("select, input");
+					entry[key].Action = cells[0].value;
+					entry[key].MaxCount = parseInt(cells[1].value);
+					rowIndex++;
+				}
+			});
+
+			const itemRows = document.querySelectorAll("#itemsTable tbody tr");
+			rowIndex = 0;
+			data["IndicatorItems"].forEach(entry => {
+				for (let key in entry) {
+					const cells = itemRows[rowIndex].querySelectorAll("select, input");
+					entry[key].Action = cells[0].value;
+					entry[key].MaxCount = parseInt(cells[1].value);
+					entry[key].Regex = cells[2].value;
+					rowIndex++;
+				}
+			});
+
+			fetch("/api/save", {
+				method: "POST",
+				headers: {"Content-Type": "application/json"},
+				body: JSON.stringify(data)
+			})
+				.then(res => {
+					if (!res.ok) throw new Error("Speicherfehler");
+					return res.text();
+				})
+				.then(text => {
+					showPopup("popupSuccess");
+					lastSaved = structuredClone(data);
+					unsavedChanges = false;
+					document.querySelectorAll("tr.modified").forEach(tr => tr.classList.remove("modified"));
+				})
+				.catch(() => {
+					showPopup("popupError");
+				});
+		}
+
+		function undo() {
+			if (!lastSaved) return;
+			data = structuredClone(lastSaved);
+			fillTables();
+			unsavedChanges = false;
+		}
+
+		function showPopup(id) {
+			const el = document.getElementById(id);
+			el.style.display = "block";
+			setTimeout(() => {
+				el.style.display = "none";
+			}, 2000);
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+go run main.go -v -senderip 1.2.3.4 -config-file ../../config-sgg/varistav.conf -mailfrom test@test.de -msgid 1234-3456 -rating 0 -response-file ~/tmp/response.log -scanfile /workdir/workspace/var/spool/exim4/scan/Word-file-with-vba-form.docm.eml

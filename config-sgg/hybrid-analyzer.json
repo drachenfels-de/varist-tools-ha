@@ -1,0 +1,1521 @@
+{
+    "Indicator Categories" : [
+        {
+            "AudioVisual": {
+                "Description": "Indicates camera or recording activity",
+                "Action": "ignore",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Autoex": {
+                "Description": "Indicates automatic, possibly unwanted execution of code - in particular code that may get executed without the knowledge or permission of the user. A typical example would be an MS Office document containing macros which automatically get run when the document is opened",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Browser": {
+                "Description": "The use of cookies, bookmarks or browser history",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Crypto": {
+                "Description": "Indicates the use of cryptography/encryption",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Data": {
+                "Description": "Indicates the accessing or transfer of some data",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Debug": {
+                "Description": "The use or detection of debugging",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Denial": {
+                "Description": "Indicates behavior suggesting denial-of-service activity (including shutdown, locking or data erasure)",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Detected": {
+                "Description": "Indicates detection of something which would be reported by our AV scanner",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Download": {
+                "Description": "This feature signals active data transfers, indicating capabilities for uploading or downloading, ensuring users are aware of data movement",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Enumerate": {
+                "Description": "Process enumeration",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Environment": {
+                "Description": "Indicates the use of environment variables",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Evasion": {
+                "Description": "Evasive activity. Behaviour suggesting an attempt to hide malicious code or avoid detection",
+                "Action": "quarantine",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Execute": {
+                "Description": "Indicates execution of another process",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "External": {
+                "Description": "Indicates use or access of external objects",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Filemod": {
+                "Description": "File modification. Likely to indicate some run-time compression or other non-malicious additional code",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Filesystem": {
+                "Description": "Indicates file system activity",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Inject": {
+                "Description": "Possible code injection",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Install": {
+                "Description": "Indicates file installation activity",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Intercept": {
+                "Description": "The use of hooking or interception of system activity",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Internet": {
+                "Description": "Indicates (local) network-related activity",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Low-Level": {
+                "Description": "Indicates low-level manipulation of threads or processes",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Memory": {
+                "Description": "Indicates memory manipulation",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Meta": {
+                "Description": "Various metadata and other bits of information which are primarily listed for informative purposes",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Mutex": {
+                "Description": "Indicates the use of synchronization",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Network": {
+                "Description": "Network activity",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Other": {
+                "Description": "Other notable activity",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Privilege": {
+                "Description": "Privilege escalation. Indicates behavior suggesting an attempt to modify or obtain special privileges",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Registry": {
+                "Description": "Indicates registry use. Whether this is malicious depends entirely on the registry entries being used/modified",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Resources": {
+                "Description": "Indicates the use of the resource section",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Suspicious": {
+                "Description": "Suspicious activity",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "System": {
+                "Description": "Indicates access to system information or the use or manipulation of services, threads or other system resources",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        },
+        {
+            "Virtual": {
+                "Description": "Memory manipulation",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        }
+    ],
+    "IndicatorItems": [
+        {
+            "AV": {
+                "Description": "Detects or avoids an anti-malware program",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Abnormal": {
+                "Description": "Uses a file in an abnormal location",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "AbnormalRegset": {
+                "Description": "Uses registry to refer to a file in an abnormal location",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ArchiveCount": {
+                "Description": "Number of files in archive",
+                "Action": "quarantine",
+                "MaxCount": 1000
+            },
+            "Authenticode": {
+                "Description": "PE file contains an embedded Authenticode signature",
+                "Action": "ignore",
+                "MaxCount": 0
+            },
+            "AuthenticodeFail": {
+                "Description": "Invalid embedded Authenticode signature",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "AutoExCopy": {
+                "Description": "The program copies itself and sets an auto-execution registry entry to refer to the copy",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "AutoExCreate": {
+                "Description": "The program creates a file and sets an auto-execution registry entry to refer to it",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "AutoExOther": {
+                "Description": "The program sets an autoexecution registry entry to refer to a file, Installs a file for future automatic execution",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "AutoExSelf": {
+                "Description": "The program sets an autoexecution registry entry to refer to itself, Installs itself for future automatic execution",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "AutoPathCopy": {
+                "Description": "The program copies itself to an auto-execution location",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "AutoPathCreate": {
+                "Description": "The program creates a file in an auto-execution location",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Base64": {
+                "Description": "Uses Base64 encoding",
+                "Action": "ignore",
+                "MaxCount": 0
+            },
+            "Base64Script": {
+                "Description": "Uses Base64 encoding for strings passed to eval() or document.write()",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "CHRScript": {
+                "Description": "Uses chartob for strings passed to eval() or document.write()",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Code": {
+                "Description": "Contains special code",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "CodeData": {
+                "Description": "Executes code in a data section",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "CodeHide": {
+                "Description": "Hides code in an unexpected or non-standard loction",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "CodeSize": {
+                "Description": "Incorrect CodeSize",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ContainEncrypted": {
+                "Description": "Contains an encrypted file/stream (with a password)",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ContainMalware": {
+                "Description": "Contains known malware",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Contained": {
+                "Description": "",
+                "Action": "ignore",
+                "MaxCount": 0
+            },
+            "Container": {
+                "Description": "Contains an object",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Content": {
+                "Description": "Archive file or attachment",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "CopySelf": {
+                "Description": "Copies itself",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "CopySelfExist": {
+                "Description": "Copies itself over an existing file",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "CopySelfMulti": {
+                "Description": "Copies itself multiple times",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Corrupt": {
+                "Description": "Corrupt, cannot be analysed",
+                "Action": "quarantine",
+                "MaxCount": 0
+            },
+            "DataAppend": {
+                "Description": "Unusual content appended",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "DataExe": {
+                "Description": "Executable content appended to a data file(like JPG)",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "DataURL": {
+                "Description": "Has a data URL",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "DDE": {
+                "Description": "Uses a DDE link",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Disable": {
+                "Description": "Disables a program, service or specific functionality",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "DisableRegDel": {
+                "Description": "Deletes a registry setting to disable a program, service or specific functionality",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "DisableRegSet": {
+                "Description": "Uses registry to disable a program, service or specific functionality",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "DocInfoBool": {
+                "Description": "Boolean Metadata from the document",
+                "Action": "ignore",
+                "MaxCount": 0
+            },
+            "DocInfoFiletime": {
+                "Description": "",
+                "Action": "ignore",
+                "MaxCount": 0
+            },
+            "DocInfoInt": {
+                "Description": "",
+                "Action": "ignore",
+                "MaxCount": 0
+            },
+            "DocInfoString": {
+                "Description": "String Metadata from the document",
+                "Action": "block",
+                "Regex": ".*",
+                "MaxCount": 0
+            },
+            "DoubleExt": {
+                "Description": "Has a suspicious double extension (like .doc.exe)",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "DynamicFunction": {
+                "Description": "Creates a function in document.write() or eval()",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Encrypted": {
+                "Description": "Is an encrypted file/stream (with a password)",
+                "Action": "tag",
+                "MaxCount": 0
+            },
+            "ExeURL": {
+                "Description": "Found URL pointing to a file with an executable extension",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Exec": {
+                "Description": "Executes a specific program",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ExecCreated": {
+                "Description": "Executes a file it created",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ExecDownloaded": {
+                "Description": "Executes a file it downloaded",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ExecSelf": {
+                "Description": "Executes a copy of itself",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Exename": {
+                "Description": "Contains the name of an executable file",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ExeDatasection": {
+                "Description": "Data section marked as executable",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ExpActivity": {
+                "Description": "Shares some activity",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ExpProvider": {
+                "Description": "Shares a provider",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ExpReceiver": {
+                "Description": "Shares a receiver",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ExpService": {
+                "Description": "Shares a service",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Extrel": {
+                "Description": "Contains an external relationship",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Feature": {
+                "Description": "Has a special feature",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Function": {
+                "Description": "Uses a function",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "FormPost": {
+                "Description": "HTML form uses method:POST",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HasVBAPcode": {
+                "Description": "Has compiled VBA p-code",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HasVBAPSource": {
+                "Description": "Has compressed VBA source",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HiddenAutoEx": {
+                "Description": "Hides auto-executing code",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HiddenSheet": {
+                "Description": "Found a hidden sheet",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HiddenString": {
+                "Description": "Found a hidden or encrypted string",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HiddenURL": {
+                "Description": "Found a hidden or encrypted URL",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HiddenWIN32": {
+                "Description": "Hides the name of a known W32 API",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HideAll": {
+                "Description": "Hides ActiveX controls or similar",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HTMLAtob": {
+                "Description": "Uses atob() in HTML. Potentially interesting decoded string",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HTMLForm": {
+                "Description": "HTML page includes a form",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "HTMLElements": {
+                "Description": "Various HTML elements",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "IFrame": {
+                "Description": "HTML page includes an Iframe",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "IFrameAppended": {
+                "Description": "Iframe appended to main html body",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "IFrameNoURL": {
+                "Description": "Iframe without a source URL",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "IFrameNull": {
+                "Description": "Iframe with 0 height or width",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Import": {
+                "Description": "Imports an API",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "InitDataSize": {
+                "Description": "Incorrect InitDataSize",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "InputEmail": {
+                "Description": "Contains an email address",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "InputPassword": {
+                "Description": "Contains a password",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "InterceptRegset": {
+                "Description": "Uses registry to intercept the opening or execution of another object",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "KillSpecial": {
+                "Description": "Terminates a special process",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "LanguageAndCompiler": {
+                "Description": "Programming language and compiler",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "LastUnknown": {
+                "Description": "Unknown final section",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "LnkCmd": {
+                "Description": "Has a command-line handler",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "LnkIcon": {
+                "Description": "Has an icon file",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "LnkJs": {
+                "Description": "LNK to a JavaScript file",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "LoadAll": {
+                "Description": "Loads an additional DLL for every process",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Macros": {
+                "Description": "Document contains macros",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Mailheader": {
+                "Description": "Mail (eml) header field",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Mailto": {
+                "Description": "Contains a mailto: link",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Mask": {
+                "Description": "10 bits - limit of 1024 item values",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ModifyExec": {
+                "Description": "Modifies an existing executable file",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ModifyFormula": {
+                "Description": "May modify formulas during runtime",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ModifyMultiple": {
+                "Description": "Modifies multiple existing executable files",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ModifySpecial": {
+                "Description": "Modifies a special file",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Obfuscated": {
+                "Description": "Uses ConfuserEx or similar obfuscation technology",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Object": {
+                "Description": "Uses an object associated with a particular category",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ObjectRegUse": {
+                "Description": "Uses a registry entry for an object associated with a particular category",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ObjType": {
+                "Description": "Item object type (only reported if anything else is reported)",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "OneTimeURL": {
+                "Description": "URL is only valid once",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Packer": {
+                "Description": "Uses run-time compression",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "PDFEmbedFiles": {
+                "Description": "PDF contains embedded files",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "PDFInfo": {
+                "Description": "PDF document information",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "PDFJS": {
+                "Description": "PDF contains JavaScript",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "PDFPages": {
+                "Description": "PDF number of pages",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "PDFURL": {
+                "Description": "PDF number of URLs",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Punycode": {
+                "Description": "Found a Punycode URL",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "PunyMimic": {
+                "Description": "Punycode URL mimics a well-known domain",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "PunyMulti": {
+                "Description": "Punycode URL uses multiple unrelated Unicode blocks",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "PunyNonLatin": {
+                "Description": "Punycode URL mixes latin and non-latin",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Receiver": {
+                "Description": "Registers a receiver",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "RegDelete": {
+                "Description": "Deletes a registry value or key",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "RegSet": {
+                "Description": "Sets a registry value",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "RegUse": {
+                "Description": "Checks a registry entry",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "RequestPerm": {
+                "Description": "Requests system permissions",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Roundoff": {
+                "Description": "Incorrect size of image",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SecondRegset": {
+                "Description": "Sets a program to also execute an additional program",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Security": {
+                "Description": "Disables a security feature or program",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SecurityOption": {
+                "Description": "Changes a security setting by changing a system option",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SecurityRegdel": {
+                "Description": "Deletes a registry setting to disable a security feature or program",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SecurityRegset": {
+                "Description": "Uses registry to disable a security feature or program",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Setting": {
+                "Description": "Changes a system setting",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SettingOption": {
+                "Description": "Changes a system option setting",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SettingRegdel": {
+                "Description": "Deletes a system option registry setting",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "ShortURL": {
+                "Description": "URL uses an URL-shortener service",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SocketConnect": {
+                "Description": "Connects to a port - might be a client",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Standalone": {
+                "Description": "Object should not be found stand-alone",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SocketListen": {
+                "Description": "Listens to a port - might be a server",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "StrangeHeader": {
+                "Description": "Has a non-standard file header",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "String": {
+                "Description": "Found a string associated with a particular category",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SuperHiddenSheet": {
+                "Description": "Found a superhidden sheet",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "SuspiciousURL": {
+                "Description": "Found suspicious text in an URL",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "UnescapeScript": {
+                "Description": "Uses unescape for strings passed to eval() or document.write()",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "UnInitDataSize": {
+                "Description": "Incorrect UninitDataSize",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "UnexpectedData": {
+                "Description": "Hides data in an unexpected/abnormal location",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "UnexpectedScript": {
+                "Description": "Hides a script in an unexpected/abnormal location",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "UnspecifiedItem": {
+                "Description": "Future indicator #XX, description not currently available",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "URL": {
+                "Description": "Contains a valid URL of interest",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "URLURL": {
+                "Description": "URL contains another URL",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "URLUserPass": {
+                "Description": "URL contains username:password",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "UseDLL": {
+                "Description": "Uses a specific DLL",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "UsesWin32": {
+                "Description": "Uses a W32 DLL directly",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "VBACorrSource": {
+                "Description": "Has macro bytecode, but source is corrupt",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "VBARevStomping": {
+                "Description": "Source code present, but no (or corrupted) p-code (reverse stomping)",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "VBASource": {
+                "Description": "VBA source",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "VBAStomping": {
+                "Description": "P-code present, but no (or corrupted) source (stomping)",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "WriteProtect": {
+                "Description": "Found internal protection against modifications",
+                "Action": "block",
+                "MaxCount": 0
+            },
+            "Xor": {
+                "Description": "Uses XOR encryption",
+                "Action": "block",
+                "MaxCount": 0
+            }
+        }
+    ],
+    "ObjectTypes" : {
+        "7Z": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "8BY2": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "8BY3": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "ACE": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "AIF": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "ALZ": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "AMI": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "APK": {
+            "Support": "Full",
+            "ObjectCategory": "Other"
+        },
+        "APP": {
+            "Support": "Detection",
+            "ObjectCategory": "Apple"
+        },
+        "AR": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "ARJ": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "AUTOIT": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "BASE64": {
+            "Support": "Detection",
+            "ObjectCategory": "Code"
+        },
+        "BAT": {
+            "Support": "Detection",
+            "ObjectCategory": "Code"
+        },
+        "BMP": {
+            "Support": "Detection",
+            "ObjectCategory": "Images"
+        },
+        "BINXML": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "BOOT": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "BZ2": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "CAB": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "CDR": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "CHM": {
+            "Support": "Detection",
+            "ObjectCategory": "Internet"
+        },
+        "COM": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "CRX": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "CRTF": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "CPIO": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "DCM": {
+            "Support": "Detection",
+            "ObjectCategory": "Other"
+        },
+        "DBS": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "DEX": {
+            "Support": "Detection",
+            "ObjectCategory": "Other"
+        },
+        "DFL": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "DMG": {
+            "Support": "Detection",
+            "ObjectCategory": "Bundles"
+        },
+        "DOOM": {
+            "Support": "Unknown",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "DUMP": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "E32": {
+            "Support": "Full",
+            "ObjectCategory": "Executables"
+        },
+        "E64": {
+            "Support": "Full",
+            "ObjectCategory": "Executables"
+        },
+        "EBCDIC": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "EGG": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "EMF": {
+            "Support": "Detection",
+            "ObjectCategory": "Images"
+        },
+        "ENC": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "EXE": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "FAT_MACHO": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "FDBS": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "GIF": {
+            "Support": "Detection",
+            "ObjectCategory": "Images"
+        },
+        "GZIP": {
+            "Support": "Detection",
+            "ObjectCategory": "Archives"
+        },
+        "HA": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "HDBS": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "HFS": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "HLP": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "HQX": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "HTA": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "INI": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "INNO": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "IS": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "ISO": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "ICR": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "INF": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "IMATE": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "JET": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "JAVA": {
+            "Support": "Detection",
+            "ObjectCategory": "Code"
+        },
+        "JOB": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "JPG": {
+            "Support": "Detection",
+            "ObjectCategory": "Images"
+        },
+        "LZIP": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "LZMA": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "LZH": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "LNK": {
+            "Support": "Full",
+            "ObjectCategory": "Other"
+        },
+        "LINEAR": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "MACHO": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "MACBIN": {
+            "Support": "Detection",
+            "ObjectCategory": "Apple"
+        },
+        "MACHYPER": {
+            "Support": "Detection",
+            "ObjectCategory": "Apple"
+        },
+        "MACPEF": {
+            "Support": "Detection",
+            "ObjectCategory": "Apple"
+        },
+        "MACRSRC": {
+            "Support": "Detection",
+            "ObjectCategory": "Apple"
+        },
+        "MBR": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "MF": {
+            "Support": "Detection",
+            "ObjectCategory": "Images"
+        },
+        "MIME": {
+            "Support": "Detection",
+            "ObjectCategory": "Internet"
+        },
+        "MSLZ": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "MSO": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "NSIS": {
+            "Support": "Detection",
+            "ObjectCategory": "Bundles"
+        },
+        "OBJ": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "OLE": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "OLESTREAM": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "OS2_LE": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "OS2_LXOS2_LX": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "PALM": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "PDF": {
+            "Support": "Full",
+            "ObjectCategory": "Other"
+        },
+        "PIF": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "PNG": {
+            "Support": "Detection",
+            "ObjectCategory": "Images"
+        },
+        "PHP": {
+            "Support": "Detection",
+            "ObjectCategory": "Internet"
+        },
+        "RAR": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "REG": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "RIFF": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "RISI": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "RTF": {
+            "Support": "Detection",
+            "ObjectCategory": "Documents"
+        },
+        "RPM": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "SH": {
+            "Support": "Detection",
+            "ObjectCategory": "Code"
+        },
+        "SIM": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "SIS": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "SLK": {
+            "Support": "Detection",
+            "ObjectCategory": "Documents"
+        },
+        "SWF": {
+            "Support": "Detection",
+            "ObjectCategory": "Internet"
+        },
+        "SCRIPT": {
+            "Support": "Full",
+            "ObjectCategory": "Other"
+        },
+        "SUB": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "SUHD": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "SYMBIAN": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "SYS": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "SUF": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "TAR": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "TNEF": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "TAZ": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "TELEDISK": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "TEMP": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "TEXT": {
+            "Support": "Detection",
+            "ObjectCategory": "Documents"
+        },
+        "TXT": {
+            "Support": "Detection",
+            "ObjectCategory": "Documents"
+        },
+        "TIFF": {
+            "Support": "Detection",
+            "ObjectCategory": "Images"
+        },
+        "UU": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "UNICODE": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "UNICODE4": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "UNICODE4B": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "UNICODEB": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "UTF_8": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "VBA": {
+            "Support": "Detection",
+            "ObjectCategory": "Code"
+        },
+        "VHD": {
+            "Support": "Detection",
+            "ObjectCategory": "Bundles"
+        },
+        "WASM": {
+            "Support": "Detection",
+            "ObjectCategory": "Code"
+        },
+        "VMWR": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "WIN_64": {
+            "Support": "Full",
+            "ObjectCategory": "Other"
+        },
+        "WIN_CE": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "WIN_NE": {
+            "Support": "Detection",
+            "ObjectCategory": "Executables"
+        },
+        "WIN_PE": {
+            "Support": "Full",
+            "ObjectCategory": "Other"
+        },
+        "WISE": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "WBT": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "WMF": {
+            "Support": "Detection",
+            "ObjectCategory": "Images"
+        },
+        "WKS": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "WORD2": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "WORD6": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "WPD": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "XLSB": {
+            "Support": "Full",
+            "ObjectCategory": "Officeformats"
+        },
+        "XX": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "XML": {
+            "Support": "Full",
+            "ObjectCategory": "Other"
+        },
+        "XOR": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "XZ": {
+            "Support": "Detection",
+            "ObjectCategory": "Archives"
+        },
+        "YNC": {
+            "Support": "Detection",
+            "ObjectCategory": "Miscellaneous"
+        },
+        "ZIP": {
+            "Support": "Full",
+            "ObjectCategory": "Archives"
+        },
+        "ZOO": {
+            "Support": "Detection",
+            "ObjectCategory": "Archives"
+        }
+    }
+
+}
